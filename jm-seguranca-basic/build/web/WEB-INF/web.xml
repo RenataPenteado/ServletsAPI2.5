@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+    <description>
+      Exemplo de autenticação e controle de acesso BASIC JEE
+    </description>
+
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+
+    <jsp-config>
+        <jsp-property-group>
+           <url-pattern>/*</url-pattern>
+           <page-encoding>UTF-8</page-encoding>
+        </jsp-property-group>
+    </jsp-config>
+
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Paginas do Usuario</web-resource-name>
+            <url-pattern>/usr/*</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>usr</role-name>
+        </auth-constraint>
+     </security-constraint>
+
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Paginas do Administrador</web-resource-name>
+            <url-pattern>/adm/*</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>adm</role-name>
+        </auth-constraint>
+    </security-constraint>
+
+    <security-role>
+        <role-name>usr</role-name>
+    </security-role>
+    <security-role>
+        <role-name>adm</role-name>
+    </security-role>
+
+    <login-config>
+        <auth-method>BASIC</auth-method>
+        <realm-name>Exemplo de Seguranca BASIC JEE</realm-name>
+    </login-config>
+
+    <error-page>
+        <error-code>403</error-code>
+        <location>/erro403.jsp</location>
+    </error-page>
+</web-app>

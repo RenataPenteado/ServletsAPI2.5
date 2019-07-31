@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<tomcat-users>                      
+  <user username="renata" password="fae5a9e056209bd90b568b32c778df42" roles="usuario"/>
+  <user username="mauricio" password="42eafa3a851725464cac71b95751697f" roles="usuario,administrador"/>
+</tomcat-users>

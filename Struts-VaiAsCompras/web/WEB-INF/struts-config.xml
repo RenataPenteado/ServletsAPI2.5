@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+
+
+<struts-config>
+
+    <global-forwards>
+        <forward name="bemvindo" path="/catalogo.do"/>
+    </global-forwards>
+
+    <action-mappings>
+
+        <!-- ACOES DA LISTAGEM DO CATALOGO DE PRODUTOS -->
+
+        <action path="/catalogo" type="acoes.CatalogoAction">
+            <forward name="sucesso" path="/catalogo.jsp" />
+        </action>
+
+
+        <!-- ACOES DO CARRINHO DE COMPRAS -->
+
+        <action path="/carrinho"
+                type="acoes.CarrinhoComprasAction"
+                scope="request"
+                input="/carrinho.jsp"
+                validate="false"
+                parameter="method">
+
+            <forward name="sucesso" path="/carrinho.jsp" />
+        </action>
+
+    </action-mappings>
+
+    <message-resources parameter="resources.ApplicationResources" />
+
+</struts-config>
